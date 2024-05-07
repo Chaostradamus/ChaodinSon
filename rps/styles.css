@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-top: 50px;
+  /* background-color: palegoldenrod; */
+}
+
+.container * {
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.rps-container {
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  gap: 10px;
+}
+
+.rps-container * {
+  display: flex;
+  background-color: blue;
+  height: 50px;
+  width: 50px;
+  justify-content: center;
+  align-items: center;
+}
