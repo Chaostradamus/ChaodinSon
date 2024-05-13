@@ -1,17 +1,23 @@
 .square {
-    width: calc((498px - 15px) / 16); /* Adjust the width of each square considering the border */
-    height: calc((498px - 15px) / 16); /* Adjust the height of each square considering the border */
-    background-color: lightgray; /* Adjust background color */
-    border: 1px solid gray; /* Adjust border */
-    box-sizing: border-box; /* Include border in width and height calculations */
-  }
+  width: calc(
+    (498px - 15px) / 16
+  ); /* Adjust the width of each square considering the border */
+  height: calc(
+    (498px - 15px) / 16
+  ); /* Adjust the height of each square considering the border */
+  background-color: lightgray; /* Adjust background color */
+  border: 1px solid gray; /* Adjust border */
+  box-sizing: border-box; /* Include border in width and height calculations */
+}
 .square.hovered {
-    background-color: aqua;
+  background-color: aqua;
 }
 
-
 .container {
-      display: flex;
-    flex-wrap: wrap;
-    width: 498px; /* Adjust the width of the grid considering the border */
+  display: flex;
+  flex-wrap: wrap;
+  width: 498px; /* Adjust the width of the grid considering the border */
+}
+.button {
+  margin: 20px;
 }
