@@ -1,0 +1,46 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+/* container for everything */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* display of the calculator */
+.display {
+  display: flex;
+  border: 2px solid blue;
+  /* background-color: red; */
+  width: 20%;
+  height: 66px;
+  justify-content: end;
+  align-items: center;
+}
+
+/* container for pressable like numbers and operations */
+.pressables {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  border: 2px solid red;
+  justify-content: center; /* Center items horizontally in the pressables container */
+  width: 20%;
+}
+
+.pressables div {
+  border: 2px solid green;
+  padding: 10px; /* Add padding for better button size */
+  width: 50px; /* Set a fixed width for buttons */
+  height: 50px; /* Set a fixed height for buttons */
+  display: flex;
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  border-radius: 36px;
+}
