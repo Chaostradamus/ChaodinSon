@@ -1,0 +1,21 @@
+.flex {
+  display: flex;
+}
+
+.sidebar-container {
+  min-width: 40%;
+  height: 100vh;
+  min-width: 40%;
+  background-image: url("assets/background.avif");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+}
+
+.sign-up-section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: #f5f5f5;
+}
