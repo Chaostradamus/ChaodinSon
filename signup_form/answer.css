@@ -1,0 +1,162 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Arial", serif;
+}
+
+@font-face {
+  font-family: "Norse Bold";
+  src: url(assets/Norse-Bold.otf);
+}
+
+.flex {
+  display: flex;
+}
+
+.image-sidebar {
+  height: 100vh;
+  min-width: 40%;
+  background-image: url("assets/background.avif");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+}
+
+.title-banner {
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 20%;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: "Norse Bold";
+  font-size: 5.5rem;
+  color: white;
+}
+
+.odin-logo {
+  height: 100px;
+}
+
+a {
+  color: white;
+}
+
+.image-source {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  color: white;
+  bottom: 10px;
+  opacity: 0.8;
+}
+
+
+/* right side */
+
+.sign-up-section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: #f5f5f5;
+}
+
+.call-to-action {
+  font-size: 1.4rem;
+  font-weight: bold;
+  align-self: flex-start;
+  max-width: 790px;
+  padding: 3rem;
+  margin-top: 3rem;
+}
+
+.form-wrapper {
+  background-color: #ffffff;
+}
+
+.form {
+  flex-grow: 1;
+  gap: 60px;
+  padding: 3rem;
+  box-shadow: hsl(0, 0%, 80%) 0px 5px 5px;
+}
+
+.form-header {
+  margin-bottom: 1em;
+  font-size: 1.4rem;
+}
+
+.col + .col {
+  margin-top: 3rem;
+}
+
+label {
+  display: flex;
+  color: #2c2c2c;
+  font-size: 0.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-bottom: 3px;
+}
+
+input {
+  outline: none;
+  padding: 3px 5px;
+  border-radius: 2px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 20px;
+}
+
+input:focus {
+  border: 1.3px solid #7373ff;
+  box-shadow: 1px 1px 1px hsl(0, 0%, 80%);
+}
+
+input:invalid {
+  border: 1.3px solid hsl(0, 83%, 59%);
+  box-shadow: 1px 1px 1px hsl(0, 0%, 80%);
+}
+
+#password {
+  margin-bottom: 0;
+}
+
+.invalid-text {
+  color: hsl(0, 83%, 59%);
+  font-size: 0.6rem;
+}
+
+.links a {
+  text-decoration: none;
+}
+
+.links {
+  padding: 3rem;
+  margin-right: auto;
+  font-size: 0.9rem;
+}
+
+.create-account-btn {
+  background-color: #596d48;
+  box-shadow: 2px 2px 2px hsl(0, 0%, 80%);
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 1em 3em;
+}
+
+.login {
+  margin-top: 3em;
+}
+
+.login-link {
+  color: #596d48;
+  font-weight: bold;
+}
