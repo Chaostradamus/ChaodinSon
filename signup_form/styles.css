@@ -12,6 +12,10 @@
 
 }
 
+.p1 {
+  display: flex;
+}
+
 .p2 , .p3{
   display: flex;
   flex-direction: column;
