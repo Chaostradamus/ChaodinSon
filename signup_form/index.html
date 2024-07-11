@@ -1,29 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
     <div class="container">
-      Main
-      <div class="parent-holder">
-        <div class="p1">
-          <div>extra</div>
-          <div>child1</div>
-          <div>child2</div>
+        <!-- left side -->
+        <div class="left">
+            <div class="logo-container">
+                <img src="./assets/odin-lined.png" alt="The odin project logo">
+                <span class="odin-logo">Odin</span>
+            </div>
+            <span class="credits">Credits to Halie West</span>
         </div>
-        <div class="p2">
-          <div>child3</div>
-          <div>child4</div>
+
+        <!-- right side -->
+        <div class="right-container">
+            <div class="call-to-action">
+                <p>
+                    This is not a real online service! You know you need something like
+                    this in your life to help you realize your deepest dreams. Sign up now
+                    to get started.
+                </p>
+                <p>You know you want to</p>
+            </div>
+
+            
+            <div class="inputs">
+                <p class="form-header">Let's do this</p>
+                <div class="input-container">
+                    <div class="left-forms">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                        <label for="email">EMAIL</label>
+                        <input type="email" name="email" id="email" required>
+                        <label for="password">PASSWORD</label>
+                        <input type="password" name="password" id="password" required minlength="8" maxlength="30">
+                    </div>
+                    <div class="right-forms">
+                        <label for="last-name">LAST NAME</label>
+                        <input type="text" name="last-name" id="last-name" required>
+                        <label for="phone-number">PHONE NUMBER</label>
+                        <input type="tel" name="phone-number" id="phone-number" required>
+                        <label for="confirm-password">CONFIRM PASSWORD</label>
+                        <input type="password" name="confirm-password" id="confirm-password" required minlength="8" maxlength="30">
+                    </div>
+                </div>
+                <div class="footer">
+                    <button class="create-button">Create Account</button>
+                    <p>Already have an account? <a href="#">Log in</a></p>
+                </div>
+            </div>
         </div>
-        <div class="p3">
-          <div>child5</div>
-          <div>child6</div>
-        </div>
-      </div>
     </div>
-  </body>
+</body>
 </html>

@@ -1,24 +1,87 @@
 .container {
   display: flex;
+  height: 100vh;
+}
+
+.left {
+  flex: 1;
+  background-image: url("assets/forest.png");
+  background-size: cover;
+  flex-basis: 30%;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding-top: 200px;
+  justify-content: center;
+  text-align: center;
 }
 
-.parent-holder {
+.logo-container {
   display: flex;
-  gap: 15px;
-
+  align-items: center; /* Center items vertically within this container */
+  justify-content: center; /* Center items horizontally within this container */
 }
 
-.p1 {
-  display: flex;
+.left img {
+  max-width: 50px; /* Adjust size as needed */
+  margin-right: 10px; /* Space between the image and the text */
 }
 
-.p2 , .p3{
+.odin-logo {
+  color: white; /* Adjust color as needed */
+  font-size: 1.2em; /* Adjust as needed */
+}
+
+.credits {
+  color: white; /* Adjust color as needed */
+  font-size: 1.2em; /* Adjust as needed */
+  margin-top: auto; /* Push the credits element down by taking all available space above it */
+}
+
+.right-container {
   display: flex;
   flex-direction: column;
-  align-self: flex-end;
+  flex-basis: 60%;
 }
 
+.call-to-action {
+  padding-top: 100px;
+  padding-bottom: 150px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  /* gap: 20px */
+}
+
+.form-header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.input-container {
+  display: flex;
+  gap: 20px;
+}
+
+.left-forms {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.right-forms {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer {
+  display: flex;
+  padding-top: 15px;
+  flex-direction: column;
+}
+
+button {
+  width: 100px;
+}
