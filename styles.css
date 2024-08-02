@@ -1,14 +1,15 @@
 .body {
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
 }
 .container {
   display: flex;
-  flex-direction: column;
-  flex: 1;
+  /* flex-direction: column;
+  flex: 1; */
 }
 
 .nav {
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
