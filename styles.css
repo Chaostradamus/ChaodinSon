@@ -1,22 +1,39 @@
+.icon-container {
+  display: flex;
+  gap: 10px;
+}
+
 .body {
-  /* display: flex; */
+  /* display: grid;
+  grid-template-rows: 1fr 4fr;
+  grid-template-columns: 0.5fr 5fr;
+  gap: 10px;
+  /* height: 100%; */
+  font-size: 30px;
 }
 .container {
-  display: flex;
+  display: grid;
   /* flex-direction: column;
   flex: 1; */
   gap: 10px;
+  flex: 1;
 }
 
 .nav {
   display: flex;
   flex-direction: column;
-
 }
 
 .header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 200px;
 }
-.mainconainter {
+.header-top {
+  grid-column: 1/4;
+  grid-row: 1/2;
+}
+.main-conainter {
 }
 
 .main {
