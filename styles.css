@@ -1,21 +1,48 @@
 .body {
- 
 }
 .container {
- 
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
 }
-
+/* nav section */
 .nav {
-  
+  grid-column: 1/2;
+  grid-row: 1/5;
+  background-color: chocolate;
+  font-size: 25px;
+}
+.nav p:first-child {
+  background-color: blue;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
-.header {
+.nav-top {
 }
-.mainconainter {
+.nav-top,
+ul,
+li {
+  margin-bottom: 10px;
+}
+
+.nav-top {
+  margin-bottom: 80px;
+}
+
+/* header section */
+.header {
+  grid-column: 2/5;
+  grid-row: 1/2;
+  background-color: blueviolet;
+}
+.main-container {
+  grid-column: 2/5;
+  grid-row: 2/5;
+  background-color: gainsboro;
 }
 
 .main {
-  display: ;
 }
 
 .sidebar {
