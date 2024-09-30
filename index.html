@@ -8,25 +8,55 @@
   </head>
   <body>
     <script src="index.js"></script>
-
-    <div class="sidebar">
-      <div>Odin Library</div>
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, magnam?
-      </div>
-      <div>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis,
-        ducimus.
-      </div>
+    <div class="header">
+      <div><a>Home</a></div>
+      <div><a>Search books</a></div>
+      <div><button id="addModal">Add Book</button></div>
     </div>
 
-    <div class="main">
-      <div class="header">
-        <div>Home</div>
-        <div>Search</div>
-        <div>Add Book</div>
+    <div class="modal">
+      <div class="inputs">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Darkhold"
+          autocomplete="off"
+          required
+          style="width: 195px"
+        />
+        <label for="">Author</label>
+        <input
+          type="text"
+          name="author"
+          id="author"
+          placeholder="Mephisto"
+          autocomplete="off"
+          required
+          style="width: 195px"
+        />
+        <label for="">Pages</label>
+        <input
+          type="text"
+          name="pages"
+          id="pages"
+          placeholder="666"
+          autocomplete="off"
+          required
+          style="width: 195px"
+        />
       </div>
-      <div class="books"></div>
+
+      <div class="read">
+        <div>Read</div>
+        <label for="myCheckbox"></label>
+        <input type="checkbox" id="myCheckbox" name="read" />
+      </div>
+      <div class="add-close">
+        <button id="add">Add</button>
+        <button id="close">Close</button>
+      </div>
     </div>
   </body>
 </html>
