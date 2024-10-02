@@ -22,6 +22,7 @@ function displayBooks() {
   let cardContainer = document.querySelector(".card-container");
 
   cardContainer.innerHTML = "";
+  // loop through and display items
 
   myLibrary.forEach((book, index) => {
     const card = document.createElement("div");
@@ -34,6 +35,17 @@ function displayBooks() {
             <p><strong>Read:</strong> ${book.read ? "Yes" : "No"}</p>
     `;
 
+    // toggle buttton
+    const toggle = document.createElement("button");
+    toggle.textContent = "Did you read this";
+    toggle.classList.add("toggle");
+
+    toggle.addEventListener('click', function() {
+      book.read = !book.read
+      displayBooks()
+    })
+
+    // delete button
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     deleteButton.classList.add("delete-btn");
@@ -43,6 +55,7 @@ function displayBooks() {
       displayBooks();
     });
     card.appendChild(deleteButton);
+    card.appendChild(toggle);
     cardContainer.appendChild(card);
   });
 }

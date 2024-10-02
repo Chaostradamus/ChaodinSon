@@ -51,7 +51,7 @@
   flex-wrap: wrap;
 }
 .card-container div {
-  background-color:dimgray;
+  background-color: dimgray;
   width: 200px; /* Fixed width */
   min-height: 150px; /* Minimum height for each card */
   padding: 10px;
@@ -62,3 +62,11 @@
   flex-direction: column;
 }
 
+.card-container .delete-btn {
+  margin-bottom: 10px;
+}
+
+.card-container .toggle {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
