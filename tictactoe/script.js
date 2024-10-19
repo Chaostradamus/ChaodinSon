@@ -105,3 +105,7 @@ cells.forEach((cell) =>
   )
 );
 restartButton.addEventListener("click", () => GameModule.restartGame(cells));
+
+addcontact =  ()=> {
+  
+}
