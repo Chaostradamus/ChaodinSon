@@ -40,7 +40,7 @@ const GameModule = (() => {
       }
     }
     if (gameActive && [...cells].every((cell) => cell.textContent)) {
-      DisplayModule.updateMessage("It's a Draw!");
+      DisplayModule.updateMessage("It's a Draw!!");
       gameActive = false;
     }
   };
