@@ -6,11 +6,13 @@ let addButton = document.getElementById("add");
 
 let cardContainer = document.querySelector(".card-container");
 
-function Book(title, author, pages, read) {
-  (this.title = title),
-    (this.author = author),
-    (this.pages = pages),
-    (this.read = read);
+class Book {
+  constructor(title, author, pages, read) {
+    (this.title = title),
+      (this.author = author),
+      (this.pages = pages),
+      (this.read = read);
+  }
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -22,6 +24,7 @@ function displayBooks() {
   let cardContainer = document.querySelector(".card-container");
 
   cardContainer.innerHTML = "";
+
   // loop through and display items
 
   myLibrary.forEach((book, index) => {
@@ -40,10 +43,10 @@ function displayBooks() {
     toggle.textContent = "Did you read this";
     toggle.classList.add("toggle");
 
-    toggle.addEventListener('click', function() {
-      book.read = !book.read
-      displayBooks()
-    })
+    toggle.addEventListener("click", function () {
+      book.read = !book.read;
+      displayBooks();
+    });
 
     // delete button
     const deleteButton = document.createElement("button");
