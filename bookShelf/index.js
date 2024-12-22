@@ -76,13 +76,36 @@ closeButton.addEventListener("click", function () {
   document.querySelector(".modal").style.display = "none";
 });
 
-addButton.addEventListener("click", function () {
-  const title = document.getElementById("title").value;
-  const author = document.getElementById("author").value;
-  const pages = document.getElementById("pages").value;
+addButton.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  const title = document.getElementById("title");
+  const author = document.getElementById("author");
+  const pages = document.getElementById("pages");
   const read = document.getElementById("myCheckbox").checked;
 
-  addBookToLibrary(title, author, pages, read);
-  displayBooks();
-  document.querySelector("modal").style.display = "none";
+  if (!title.checkValidity()) {
+    alert("title isnt right");
+    return;
+  }
+  if (!author.checkValidity()) {
+    alert("title isnt right");
+    return;
+  }
+  if (
+    !pages.checkValidity() ||
+    isNaN(pages.value) ||
+    Number(pages.value) <= 0
+  ) {
+    alert("Invalid Pages: Please enter a valid positive number for pages.");
+    return;
+  }
+  // Reset the modal inputs
+  title.value = "";
+  author.value = "";
+  pages.value = "";
+  document.getElementById("myCheckbox").checked = false;
+  addBookToLibrary(title.value, author.value, pages.value, read);
+
+  document.querySelector(".modal").style.display = "none";
 });
