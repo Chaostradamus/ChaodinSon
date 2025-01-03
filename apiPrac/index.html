@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="search-box" placeholder="Search for GIFs..." />
+      <button id="search-btn">Search</button>
+      <button id="random-btn">Get Random GIF</button>
+    </div>
+    <img
+      src="#"
+      alt="GIF will appear here"
+      style="max-width: 500px; display: block; margin-top: 20px"
+    />
+    <p id="error-msg" style="color: red; display: none"></p>
+
+    <script>
+  const img = document.querySelector('img');
+  const searchBox = document.getElementById('search-box');
+  const searchBtn = document.getElementById('search-btn');
+  const randomBtn = document.getElementById('random-btn');
+  const errorMsg = document.getElementById('error-msg');
+  const apiKey = 'yC9MDSykTCR5EjT3U1u5bxPDoovcwQZV';
+
+  // Function to fetch a GIF based on a search term
+  function fetchGif(searchTerm = 'cats') {
+    const apiUrl = `https://api.giphy.com/v1/gifs/translate?api_key=${apiKey}&s=${encodeURIComponent(searchTerm)}`;
+
+    fetch(apiUrl, { mode: 'cors' })
+      .then(response => response.json())
+      .then(data => {
+        if (data.data && data.data.images) {
+          img.src = data.data.images.original.url;
+          errorMsg.style.display = 'none';
+        } else {
+          displayError('No GIFs found. Showing default image.');
+          img.src = 'https://via.placeholder.com/500x300?text=No+GIF+Found';
+        }
+      })
+      .catch(error => {
+        displayError('Failed to fetch GIF. Please check your API key or network connection.');
+        console.error(error);
+      });
+  }
+
+  // Function to fetch a truly random GIF
+  function fetchRandomGif() {
+    const randomApiUrl = `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`;
+
+    fetch(randomApiUrl, { mode: 'cors' })
+      .then(response => response.json())
+      .then(data => {
+        if (data.data && data.data.image_url) {
+          img.src = data.data.image_url;
+          errorMsg.style.display = 'none';
+        } else {
+          displayError('Failed to fetch a random GIF. Showing default image.');
+          img.src = 'https://via.placeholder.com/500x300?text=No+GIF+Found';
+        }
+      })
+      .catch(error => {
+        displayError('Failed to fetch a random GIF. Please check your API key or network connection.');
+        console.error(error);
+      });
+  }
+
+  // Function to display error messages
+  function displayError(message) {
+    errorMsg.textContent = message;
+    errorMsg.style.display = 'block';
+  }
+
+  // Event listener for the search button
+  searchBtn.addEventListener('click', () => {
+    const searchTerm = searchBox.value.trim();
+    if (searchTerm) {
+      fetchGif(searchTerm);
+    } else {
+      displayError('Please enter a search term.');
+    }
+  });
+
+  // Event listener for the random button
+  randomBtn.addEventListener('click', fetchRandomGif);
+
+  // Initial random GIF load
+  fetchGif();
+</script>
+
+  </body>
+</html>
