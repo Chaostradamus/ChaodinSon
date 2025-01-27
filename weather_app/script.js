@@ -11,7 +11,7 @@ async function fetchWeather(location) {
       throw new Error(`http req: ${res.status}`);
     }
     const data = await res.json();
-    const weather = processWeatherData(data);
+    const weatherData = processWeatherData(data);
     console.log(weather);
     return data;
   } catch (error) {
