@@ -12,8 +12,8 @@ async function fetchWeather(location) {
     }
     const data = await res.json();
     const weatherData = processWeatherData(data);
-    console.log(weather);
-    return data;
+    console.log(weatherData);
+    return weatherData;
   } catch (error) {
     console.error("Failed to fetch weather data:", error);
   }
@@ -31,4 +31,4 @@ function processWeatherData(data) {
 }
 
 // Test the function
-fetchWeather("London");
+fetchWeather("Boston");
