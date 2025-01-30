@@ -19,3 +19,88 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+
+#weather-form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+}
+
+#location-input {
+  padding: 10px;
+  width: 75%;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px;
+  width: 20%;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#loading {
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+
+
+#weather-data {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#weather-data h2 {
+  font-size: 36px;
+  color: #333;
+}
+
+#weather-data p {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+#weather-data img {
+  width: 50px;
+  height: auto;
+  margin-top: 10px;
+}
+
+.sunny {
+  background-color: #FFEB3B; /* Light yellow for sunny weather */
+}
+
+.cloudy {
+  background-color: #B0BEC5; /* Light gray for cloudy weather */
+}
+
+.rainy {
+  background-color: #0097A7; /* Blue for rainy weather */
+}
+
+.stormy {
+  background-color: #37474F; /* Dark gray/blue for stormy weather */
+}
+
+.clear {
+  background-color: #81C784; /* Soft green for clear weather */
+}
+
+
+
+
+
+

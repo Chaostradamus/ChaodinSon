@@ -11,7 +11,7 @@ async function fetchWeather(location) {
       throw new Error(`http req: ${res.status}`);
     }
     const data = await res.json();
-    const weatherData = processWeatherData(data,location);
+    const weatherData = processWeatherData(data, location);
     console.log(weatherData);
     return weatherData;
   } catch (error) {
@@ -44,6 +44,10 @@ document
       alert("Please enter a valid location!");
       return;
     }
+    const loadingElement = document.getElementById("loading");
+    // const weatherContainer = document.getElementById("weather-data");
+    loadingElement.style.display = "block";
+    // weatherContainer.innerHTML = "";
 
     const weatherData = await fetchWeather(locationInput);
 
@@ -51,11 +55,14 @@ document
       console.log("Weather Data:", weatherData); // For debugging
     }
 
-    displayWeather(weatherData)
+    loadingElement.style.display = "none";
+
+    displayWeather(weatherData);
   });
 
 function displayWeather(weather) {
   const weatherContainer = document.getElementById("weather-data");
+  const body = document.querySelector("body");
 
   weatherContainer.innerHTML = "";
 
@@ -84,7 +91,25 @@ function displayWeather(weather) {
   weatherContainer.appendChild(humidityElement);
   weatherContainer.appendChild(windSpeedElement);
   weatherContainer.appendChild(iconElement);
+  updateBackground(weather.condition, body);
 }
 
+function updateBackground(condition, body) {
+  // Remove any previously set background class
+  body.classList.remove("sunny", "cloudy", "rainy", "stormy", "clear");
+
+  // Add the appropriate class based on the weather condition
+  if (condition.includes("sunny") || condition.includes("clear")) {
+    body.classList.add("sunny");
+  } else if (condition.includes("cloudy")) {
+    body.classList.add("cloudy");
+  } else if (condition.includes("rain")) {
+    body.classList.add("rainy");
+  } else if (condition.includes("storm")) {
+    body.classList.add("stormy");
+  } else {
+    body.classList.add("clear");
+  }
+}
 // Test the function
 fetchWeather("Boston");
