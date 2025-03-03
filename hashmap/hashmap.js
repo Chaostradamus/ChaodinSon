@@ -71,4 +71,67 @@ class Hashmap {
     }
     return false;
   }
+
+  length() {
+    return this.size;
+  }
+
+  clear() {
+    this.buckets = new Array(this.capacity).fill(null);
+    this.size = 0;
+  }
+
+  keys() {
+    let keyArray = [];
+
+    for (let bucket of this.buckets) {
+      if (bucket) {
+        for (let pair of bucket) {
+          keyArray.push(pair[0]);
+        }
+      }
+    }
+    return keyArray;
+  }
+
+  keys() {
+    let valArray = [];
+
+    for (let bucket of this.buckets) {
+      if (bucket) {
+        for (let pair of bucket) {
+          valArray.push(pair[1]);
+        }
+      }
+    }
+    return valArray;
+  }
+
+  entries() {
+    let entryArray = [];
+
+    for (let bucket of this.buckets) {
+      if (bucket) {
+        for (let pair of bucket) {
+          entryArray.push(pair);
+        }
+      }
+    }
+    return entryArray;
+  }
+
+  resize() {
+    let oldBuckets = this.buckets;
+    this.capacity *= 2;
+    this.buckets = new Array(this.capacity);
+    this.size = 0;
+
+    for (let bucket of oldBuckets) {
+      if (bucket) {
+        for (let pair of bucket) {
+          this.set(pair[0], pair[1]);
+        }
+      }
+    }
+  }
 }
