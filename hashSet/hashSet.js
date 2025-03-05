@@ -46,4 +46,37 @@ class Hashset {
     this.size--;
     return true;
   }
+
+  resize() {
+    let oldBuckets = this.buckets;
+    this.capacity *= 2;
+    this.buckets = new Array(capacity).fill(null);
+    this.size = 0;
+    for (let bucket of oldBuckets) {
+      if (bucket) {
+        for (let key of bucket) {
+          this.add(key);
+        }
+      }
+    }
+  }
+
+  clear() {
+    this.buckets = new Array(capacity).fill(null);
+    this.size = 0;
+  }
+
+  lenth() {
+    return this.size;
+  }
+
+  key() {
+    let allKeys = [];
+    for (let bucket of this.buckets) {
+      if (bucket) {
+        allKeys.push(...bucket);
+      }
+    }
+    return allKeys;
+  }
 }
