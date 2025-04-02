@@ -15,7 +15,7 @@ describe("calculator class testing", () => {
   });
   test("multi", () => {
     expect(calc.multiplication(6, 6)).toBe(36);
-    expect(calc.multiplication(24, 0)).toBe(4);
+    expect(calc.multiplication(24, 0)).toBe(0);
   });
   test("division", () => {
     expect(calc.divide(6, 6)).toBe(1);

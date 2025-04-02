@@ -3,11 +3,11 @@ export class Calculator {
     return a + b;
   }
 
-  subtract(a, b) {
+  sub(a, b) {
     return a - b;
   }
 
-  multiply(a, b) {
+  multiplication(a, b) {
     return a * b;
   }
 
