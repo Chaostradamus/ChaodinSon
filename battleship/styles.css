@@ -1,0 +1,106 @@
+/* ===== BASE STYLES ===== */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: black; /* Light blue background */
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh; /* Full viewport height */
+  }
+  
+  /* Center the game container */
+  .game-container {
+    max-width: 1000px; /* Limits width on large screens */
+    margin: 0 auto; /* Horizontal centering */
+    text-align: center;
+  }
+  
+  /* ===== BOARD CONTAINERS ===== */
+  .boards-container {
+    display: flex; /* Side-by-side layout */
+    gap: 40px; /* Space between boards */
+    margin-top: 20px;
+    justify-content: center; /* Centers boards horizontally */
+  }
+  
+  /* Wrapper for each board (player/computer) */
+  .board-wrapper {
+    flex: 1; /* Each board takes equal space */
+    max-width: 420px; /* 10 cells * 40px + gaps */
+  }
+  
+  /* Board title styling */
+  .board-wrapper h2 {
+    margin-bottom: 10px;
+    color: #2c3e50; /* Dark blue-gray */
+  }
+  
+  /* ===== GAME BOARD GRID ===== */
+  .board {
+    display: grid;
+    grid-template-columns: repeat(10, 40px); /* 10 columns */
+    grid-template-rows: repeat(10, 40px);    /* 10 rows */
+    gap: 1px; /* Grid line thickness */
+    background-color: #333; /* Grid line color (dark gray) */
+    padding: 1px; /* Ensures gap visibility */
+    border-radius: 4px; /* Softened corners */
+  }
+  
+  /* Individual grid cells */
+  .cell {
+    background-color: #1e90ff; /* Ocean blue */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none; /* Prevents text selection */
+    transition: background-color 0.2s; /* Smooth color changes */
+  }
+  
+  /* Cell hover effect (for clickable boards) */
+  #computer-board .cell:hover {
+    background-color: #00bfff; /* Lighter blue */
+  }
+  
+  /* ===== GAME STATUS MESSAGES ===== */
+  .game-message {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #e6f7ff;
+    border-radius: 4px;
+    font-weight: bold;
+    min-height: 20px;
+  }
+  
+  /* ===== SHIP & ATTACK INDICATORS ===== */
+  /* Hit marker (will be added via JavaScript) */
+  .cell.hit {
+    background-color: #ff6b6b; /* Red */
+    position: relative;
+  }
+  
+  /* Miss marker (will be added via JavaScript) */
+  .cell.miss {
+    background-color: #ddd; /* Light gray */
+    position: relative;
+  }
+  
+  /* Ship placement (player board only) */
+  #player-board .cell.ship {
+    background-color: #6495ed; /* Cornflower blue */
+  }
+  
+  /* Hit/miss icons (added later via JS) */
+  .cell.hit::after,
+  .cell.miss::after {
+    font-size: 20px;
+    position: absolute;
+  }
+  
+  .cell.hit::after {
+    content: "💥"; /* Explosion emoji */
+  }
+  
+  .cell.miss::after {
+    content: "⚬"; /* Small circle */
+    color: #555;
+  }

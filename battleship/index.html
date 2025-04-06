@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- 1. Document Type Declaration -->
+<!-- Tells browsers this is an HTML5 document -->
+<html lang="en">
+<!-- 2. Root HTML Element -->
+<!-- 'lang="en"' specifies English language content -->
+
+<head>
+    <!-- 3. Document Metadata Section -->
+    <meta charset="UTF-8">
+    <!-- Character encoding for Unicode support -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ensures proper rendering on mobile devices -->
+    
+    <title>Battleship</title>
+    <!-- 4. Browser Tab Title -->
+    
+    <link rel="stylesheet" href="styles.css">
+    <!-- 5. CSS Stylesheet Link -->
+    <!-- Loads our styles.css file in the same directory -->
+</head>
+
+<body>
+    <!-- 6. Main Content Container -->
+    <div class="game-container">
+        <!-- Wraps all game content -->
+        
+        <h1>Battleship</h1>
+        <!-- 7. Main Game Title -->
+        
+        <div class="boards-container">
+            <!-- 8. Dual Board Container -->
+            <!-- Uses Flexbox to display boards side-by-side -->
+            
+            <!-- 9. Player Board Section -->
+            <div class="board-wrapper">
+                <h2>Your Fleet</h2>
+                <!-- Player's board label -->
+                
+                <div class="board" id="player-board"></div>
+                <!-- 10. Player Game Board -->
+                <!-- Empty div that JavaScript will populate with cells -->
+                <!-- 'id' allows specific targeting in JavaScript -->
+            </div>
+            
+            <!-- 11. Computer Board Section -->
+            <div class="board-wrapper">
+                <h2>Enemy Waters</h2>
+                <!-- Computer's board label -->
+                
+                <div class="board" id="computer-board"></div>
+                <!-- 12. Computer Game Board -->
+                <!-- Will become clickable target for attacks -->
+            </div>
+        </div>
+        
+        <!-- 13. Game Message Display -->
+        <div class="game-message" id="game-message"></div>
+        <!-- Empty container for turn/status messages -->
+    </div>
+
+    <!-- 14. JavaScript Connection -->
+    <script type="module" src="src/index.js"></script>
+    <!-- 'type="module"' enables ES6 imports/exports -->
+    <!-- Loads AFTER HTML/CSS to prevent rendering delays -->
+</body>
+</html>
