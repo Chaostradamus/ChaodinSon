@@ -1,68 +1,60 @@
 <!DOCTYPE html>
-<!-- 1. Document Type Declaration -->
-<!-- Tells browsers this is an HTML5 document -->
 <html lang="en">
-<!-- 2. Root HTML Element -->
-<!-- 'lang="en"' specifies English language content -->
-
 <head>
-    <!-- 3. Document Metadata Section -->
-    <meta charset="UTF-8">
-    <!-- Character encoding for Unicode support -->
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Ensures proper rendering on mobile devices -->
-    
-    <title>Battleship</title>
-    <!-- 4. Browser Tab Title -->
-    
-    <link rel="stylesheet" href="styles.css">
-    <!-- 5. CSS Stylesheet Link -->
-    <!-- Loads our styles.css file in the same directory -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battleship</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <!-- 6. Main Content Container -->
-    <div class="game-container">
-        <!-- Wraps all game content -->
-        
-        <h1>Battleship</h1>
-        <!-- 7. Main Game Title -->
-        
-        <div class="boards-container">
-            <!-- 8. Dual Board Container -->
-            <!-- Uses Flexbox to display boards side-by-side -->
-            
-            <!-- 9. Player Board Section -->
-            <div class="board-wrapper">
-                <h2>Your Fleet</h2>
-                <!-- Player's board label -->
-                
-                <div class="board" id="player-board"></div>
-                <!-- 10. Player Game Board -->
-                <!-- Empty div that JavaScript will populate with cells -->
-                <!-- 'id' allows specific targeting in JavaScript -->
-            </div>
-            
-            <!-- 11. Computer Board Section -->
-            <div class="board-wrapper">
-                <h2>Enemy Waters</h2>
-                <!-- Computer's board label -->
-                
-                <div class="board" id="computer-board"></div>
-                <!-- 12. Computer Game Board -->
-                <!-- Will become clickable target for attacks -->
-            </div>
-        </div>
-        
-        <!-- 13. Game Message Display -->
-        <div class="game-message" id="game-message"></div>
-        <!-- Empty container for turn/status messages -->
+  <div class="game-container">
+    <h1>Battleship</h1>
+    <div class="boards-container">
+      <div class="board-wrapper">
+        <h2>Your Fleet</h2>
+        <div class="board" id="player-board"></div>
+      </div>
+      <div class="board-wrapper">
+        <h2>Enemy Waters</h2>
+        <div class="board" id="computer-board"></div>
+      </div>
     </div>
+    
+    <div class="ship-placement-controls" id="placement-controls">
+  <h3>Ship Placement</h3>
+  <div class="ship-selection">
+    <div class="draggable-ship" draggable="true" data-length="5">Carrier (5)</div>
+    <div class="draggable-ship" draggable="true" data-length="4">Battleship (4)</div>
+    <div class="draggable-ship" draggable="true" data-length="3">Cruiser (3)</div>
+    <div class="draggable-ship" draggable="true" data-length="3">Submarine (3)</div>
+    <div class="draggable-ship" draggable="true" data-length="2">Destroyer (2)</div>
+  </div>
+  <div class="placement-instructions" id="placement-instructions">
+    Drag ships to board (hold Shift for vertical) - ships snap to edges
+  </div>
+  <div class="placement-controls-row">
+    <input type="number" class="coord-input" id="x-coord" placeholder="X" min="0" max="9">
+    <input type="number" class="coord-input" id="y-coord" placeholder="Y" min="0" max="9">
+    <select id="direction">
+      <option value="horizontal">Horizontal</option>
+      <option value="vertical">Vertical</option>
+    </select>
+    <button class="placement-btn" id="place-btn">Place Ship</button>
+  </div>
+  <div style="margin-top: 15px;">
+    <button class="placement-btn randomize-btn" id="randomize-btn">Randomize All</button>
+    <button class="placement-btn start-game-btn" id="start-game-btn" disabled>Start Game</button>
+  </div>
+</div>
+    
+    <div class="game-message" id="game-message"></div>
+    <button id="restart-btn">New Game</button>
+  </div>
 
-    <!-- 14. JavaScript Connection -->
-    <script type="module" src="src/index.js"></script>
-    <!-- 'type="module"' enables ES6 imports/exports -->
-    <!-- Loads AFTER HTML/CSS to prevent rendering delays -->
+  <script src="src/ship.js"></script>
+  <script src="src/gameboard.js"></script>
+  <script src="src/player.js"></script>
+  <script src="src/dom.js"></script>
+  <script src="src/index.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-export default class Gameboard {
+class Gameboard {
   constructor() {
     this.ships = [];
     this.missedAttacks = [];
@@ -8,32 +8,29 @@ export default class Gameboard {
   placeShip(ship, x, y, direction) {
     const positions = [];
 
+    // Adjust for edge placement
+    if (direction === "horizontal" && x + ship.length > 10)
+      x = 10 - ship.length;
+    if (direction === "vertical" && y + ship.length > 10) y = 10 - ship.length;
+
+    x = Math.max(0, x);
+    y = Math.max(0, y);
+
     for (let i = 0; i < ship.length; i++) {
-      let newX, newY;
+      const newX = direction === "horizontal" ? x + i : x;
+      const newY = direction === "horizontal" ? y : y + i;
 
-      if (direction === "horizontal") {
-        newX = x;
-        newY = y + i;
-      } else if (direction === "vertical") {
-        newX = x + i;
-        newY = y;
-      } else {
-        throw new Error('Invalid direction. Use "horizontal" or "vertical"');
-      }
-
-      // Check bounds
       if (newX < 0 || newX >= 10 || newY < 0 || newY >= 10) {
         throw new Error("Ship out of bounds");
       }
 
-      // Check overlap with existing ships
       for (const existingShip of this.ships) {
         if (
           existingShip.positions.some(
             (pos) => pos[0] === newX && pos[1] === newY
           )
         ) {
-          throw new Error("Position already occupied by another ship");
+          throw new Error("Position already occupied");
         }
       }
 
@@ -46,14 +43,12 @@ export default class Gameboard {
   receiveAttack(x, y) {
     const positionKey = `${x},${y}`;
 
-    // Check if already attacked
     if (this.attackedPositions.has(positionKey)) {
       throw new Error("Already attacked this position");
     }
 
     this.attackedPositions.add(positionKey);
 
-    // Check if attack hits any ship
     for (const shipData of this.ships) {
       const hitPosition = shipData.positions.find(
         (pos) => pos[0] === x && pos[1] === y
@@ -64,7 +59,6 @@ export default class Gameboard {
       }
     }
 
-    // If no ship was hit
     this.missedAttacks.push([x, y]);
     return false;
   }
